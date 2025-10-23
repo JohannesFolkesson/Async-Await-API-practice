@@ -1,0 +1,78 @@
+// ==========================
+// REST API Code-Along: Books
+// ==========================
+
+// 1️⃣ Importera Express
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+// 2️⃣ Middleware: Låter oss läsa JSON i request body
+app.use(express.json());
+
+// 3️⃣ Skapa en in-memory \"databas\" (array av böcker)
+let books = [
+  { id: 1, title: 'The Hobbit', author: 'J.R.R. Tolkien' },
+  { id: 2, title: '1984', author: 'George Orwell' }
+];
+let nextId = 3; // För att automatiskt ge nya böcker ett id
+
+// ==========================
+// 4️⃣ Endpoints / Routes
+// ==========================
+
+// GET /books — lista alla böcker
+app.get('/books', (req, res) => {
+  res.json(books);
+});
+
+// GET /books/:id — hämta en bok
+app.get('/books/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const book = books.find(b => b.id === id);
+  if (!book) {
+    return res.status(404).json({ error: 'Book not found' });
+  }
+  res.json(book);
+});
+
+// POST /books — skapa en ny bok
+app.post('/books', (req, res) => {
+  const { title, author } = req.body;
+  if (!title || !author) {
+    return res.status(400).json({ error: 'title and author required' });
+  }
+  const book = { id: nextId++, title, author };
+  books.push(book);
+  res.status(201).json(book);
+});
+
+// PUT /books/:id — uppdatera en bok
+app.put('/books/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const { title, author } = req.body;
+  const idx = books.findIndex(b => b.id === id);
+  if (idx === -1) return res.status(404).json({ error: 'Book not found' });
+
+  if (title) books[idx].title = title;
+  if (author) books[idx].author = author;
+
+  res.json(books[idx]);
+});
+
+// DELETE /books/:id — ta bort en bok
+app.delete('/books/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const idx = books.findIndex(b => b.id === id);
+  if (idx === -1) return res.status(404).json({ error: 'Book not found' });
+
+  const removed = books.splice(idx, 1)[0];
+  res.json(removed);
+});
+
+// ==========================
+// 5️⃣ Starta servern
+// ==========================
+app.listen(port, () => {
+  console.log(`REST API running on http://localhost:${port}`);
+});
