@@ -1,0 +1,36 @@
+input {
+    display: block;
+    margin: 0 auto;
+    height: 20px;
+    margin-top: 25px;
+
+
+    background-color: aquamarine;
+}
+
+.btn {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-right: 795px;
+    margin-top: -25px;
+    height: 25px;
+    background-color: aquamarine;
+}
+
+.pokemon-img {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    scale: 3;
+    margin-top: 250px; 
+    
+}
+
+.poke-name {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-left: 900px;
+    margin-top: 90px;
+}

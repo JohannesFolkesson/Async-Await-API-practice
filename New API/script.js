@@ -5,6 +5,8 @@ const result = document.createElement('div')
 input.placeholder = 'Search...'
 btn.textContent = 'Submit'
 
+input.classList.add('input')
+btn.classList.add('btn')
 
 document.body.appendChild(input)
 document.body.appendChild(btn)
@@ -13,7 +15,7 @@ document.body.appendChild(result)
 
 btn.addEventListener('click', async () => {
     try {
-        const pokemoname = input.value.toLowerCase();
+        const pokemoname = input.value.toUpperCase();
         const url = `https://pokeapi.co/api/v2/pokemon/${pokemoname}`
         const res = await fetch(url)
 
@@ -31,8 +33,10 @@ btn.addEventListener('click', async () => {
         result.appendChild(pokemonSprite);
    
     result.innerHTML = `
-    <img src="${data.sprites.front_default}">
-    ${data.name}`;
+    <img class = "pokemon-img" src="${data.sprites.front_default}">
+    <p class = "poke-name"> ${data.name.toUpperCase()}</p>`;
+
+    input.value = ""
 
 
 
@@ -41,6 +45,8 @@ btn.addEventListener('click', async () => {
 
 
 })
+
+
 
 
 
