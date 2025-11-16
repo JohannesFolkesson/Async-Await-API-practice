@@ -54,6 +54,7 @@ input {
     75%  { text-shadow: 0 0 10px cyan; }
     100% { text-shadow: 0 0 10px magenta; }
 }
+
 @keyframes pokename {
     0%{color: rgb(58, 43, 226);}
     25% {color: black;}
