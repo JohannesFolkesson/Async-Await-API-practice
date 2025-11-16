@@ -14,6 +14,8 @@ document.body.appendChild(result)
 
 
 btn.addEventListener('click', async () => {
+       
+    
     try {
         const pokemoname = input.value.toUpperCase();
         const url = `https://pokeapi.co/api/v2/pokemon/${pokemoname}`
@@ -45,6 +47,12 @@ btn.addEventListener('click', async () => {
 
 
 })
+
+input.addEventListener('keydown', (e) => {
+    
+})
+
+
 
 
 
