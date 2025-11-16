@@ -13,7 +13,7 @@ document.body.appendChild(btn)
 document.body.appendChild(result)
 
 
-btn.addEventListener('click', async () => {
+ async function searchPokemon() {
        
     
     try {
@@ -46,10 +46,15 @@ btn.addEventListener('click', async () => {
  result.textContent = `Fel: ${error.message}`}
 
 
-})
+}
 
 input.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter')
+    if(e.key === 'Enter') {
+        searchPokemon()
+
+    }
+
+btn.addEventListener('click')
 
 })
 
