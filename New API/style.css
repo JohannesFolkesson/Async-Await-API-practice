@@ -34,3 +34,7 @@ input {
     margin-left: 900px;
     margin-top: 90px;
 }
+
+body {
+    background-color: aqua;
+}
