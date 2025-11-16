@@ -33,6 +33,26 @@ input {
     margin: 0 auto;
     margin-left: 900px;
     margin-top: 90px;
+    animation: pokename 4s ease-in-out infinite, bounceIn 0.7s;
+    animation-duration: 5s;
+    font-weight: 999;
+
+
+}
+@keyframes pokename {
+    0%{color: blueviolet;}
+    25% {color: black;}
+    50% {color: red;}
+    75% {color: navajowhite;}
+    100% {color: green;}
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.7); opacity: 0;}
+    25% { transform: scale(0.9);}
+    50% { transform: scale(1.2); opacity: 1;}
+    70% { transform: scale(0.9); opacity: 0;}
+   100% { transform: scale(1); opacity: 0;}
 }
 
 body {
