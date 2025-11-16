@@ -31,28 +31,45 @@ input {
     display: block;
     position: relative;
     margin: 0 auto;
-    margin-left: 900px;
+    margin-left: 860px;
     margin-top: 90px;
-    animation: pokename 4s ease-in-out infinite, bounceIn 0.7s;
-    animation-duration: 5s;
-    font-weight: 999;
+    animation: pokename 4s ease-in-out infinite, fadeInUp 0.7, glow infinite;
+    animation-duration: 2s;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
 
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff,
+        0 0 80px #00ffff;
 
+}
+
+@keyframes glow {
+    0%   { text-shadow: 0 0 10px red; }
+    25%  { text-shadow: 0 0 10px yellow; }
+    50%  { text-shadow: 0 0 10px lime; }
+    75%  { text-shadow: 0 0 10px cyan; }
+    100% { text-shadow: 0 0 10px magenta; }
 }
 @keyframes pokename {
-    0%{color: blueviolet;}
+    0%{color: rgb(58, 43, 226);}
     25% {color: black;}
     50% {color: red;}
-    75% {color: navajowhite;}
-    100% {color: green;}
+    75% {color: darkorange;}
+    100% {color: rgb(21, 20, 2);}
 }
-
-@keyframes bounceIn {
-    0% { transform: scale(0.7); opacity: 0;}
-    25% { transform: scale(0.9);}
-    50% { transform: scale(1.2); opacity: 1;}
-    70% { transform: scale(0.9); opacity: 0;}
-   100% { transform: scale(1); opacity: 0;}
+@keyframes fadeInUp {
+    0% {
+        opacity: 1;
+        transform: translateY(500px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 body {
