@@ -55,7 +55,7 @@ input.addEventListener('keydown', (e) => {
     }
 
 btn.addEventListener('click', () => {
-    
+    searchPokemon()
 })
 
 })
