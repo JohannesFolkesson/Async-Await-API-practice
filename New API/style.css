@@ -62,6 +62,7 @@ input {
     75% {color: darkorange;}
     100% {color: rgb(21, 20, 2);}
 }
+
 @keyframes fadeInUp {
     0% {
         opacity: 1;
